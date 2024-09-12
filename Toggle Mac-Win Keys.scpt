@@ -54,7 +54,7 @@ if osver ≥ 13.0 then
 		click pop up button "Select keyboard" of group 1 of scroll area 1 of group 2 of splitter group 1 of group 1 of sheet 1 of window 1
 		
 		# Put the keyboard name
-		click menu item "G915 KEYBOARD" of menu 1 of pop up button "Select keyboard" of group 1 of scroll area 1 of group 2 of splitter group 1 of group 1 of sheet 1 of window 1
+		click menu item "Apple Internal Keyboard / Trackpad" of menu 1 of pop up button "Select keyboard" of group 1 of scroll area 1 of group 2 of splitter group 1 of group 1 of sheet 1 of window 1
 		delay 0.5
 		
 		# Change Option key
@@ -73,6 +73,38 @@ if osver ≥ 13.0 then
 			click menu item "⌥ Option" of menu 1 of pop up button 4 of group 2 of scroll area 1 of group 2 of splitter group 1 of group 1 of sheet 1 of window 1
 		end if
 		delay 0.5
+		
+		
+		
+		# Select keyboard: pop up button
+		click pop up button "Select keyboard" of group 1 of scroll area 1 of group 2 of splitter group 1 of group 1 of sheet 1 of window 1
+		
+		try
+			# Put the keyboard name
+			click menu item "G915 KEYBOARD" of menu 1 of pop up button "Select keyboard" of group 1 of scroll area 1 of group 2 of splitter group 1 of group 1 of sheet 1 of window 1
+			delay 0.5
+			
+			# Change Option key
+			click pop up button 3 of group 2 of scroll area 1 of group 2 of splitter group 1 of group 1 of sheet 1 of window 1
+			if value of pop up button 3 of group 2 of scroll area 1 of group 2 of splitter group 1 of group 1 of sheet 1 of window 1 as text is "⌥ Option" then
+				click menu item "⌘ Command" of menu 1 of pop up button 3 of group 2 of scroll area 1 of group 2 of splitter group 1 of group 1 of sheet 1 of window 1
+			else
+				click menu item "⌥ Option" of menu 1 of pop up button 3 of group 2 of scroll area 1 of group 2 of splitter group 1 of group 1 of sheet 1 of window 1
+			end if
+			delay 0.5
+			
+			click pop up button 4 of group 2 of scroll area 1 of group 2 of splitter group 1 of group 1 of sheet 1 of window 1
+			if value of pop up button 4 of group 2 of scroll area 1 of group 2 of splitter group 1 of group 1 of sheet 1 of window 1 as text is "⌥ Option" then
+				click menu item "⌘ Command" of menu 1 of pop up button 4 of group 2 of scroll area 1 of group 2 of splitter group 1 of group 1 of sheet 1 of window 1
+			else
+				click menu item "⌥ Option" of menu 1 of pop up button 4 of group 2 of scroll area 1 of group 2 of splitter group 1 of group 1 of sheet 1 of window 1
+			end if
+			delay 0.5
+		on error
+			# display dialog "Keyboard not found. Please select a different keyboard."
+		end try
+		
+		
 		
 		# "Done" Button - Close the sheet so the application can quit
 		click button 2 of group 2 of splitter group 1 of group 1 of sheet 1 of window 1
